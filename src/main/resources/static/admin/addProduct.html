@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Product</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-    AddProduct
+<div class="container">
+    <form id="add-product">
+        <label>Select Category:</label>
+        <select class="category">
+            <option value="shirt">Shirt</option>
+            <option value="pant">Pant</option>
+            <option value="shoe">Shoe</option>
+        </select>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module" src="/js/addProduct.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Admin Page</h1>
+    <div class="row">
+        <form class="col-sm-5" id="input-form">
+            <h2 class="text-center">Add Category </h2>
+            <div>
+                <label for="category-name" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="category-name">
+            </div>
+            <button type="submit" class="btn-btn-primary" id="submit-button">Save</button>
+            <div id="success-message"></div>
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module" src="/js/addCategory.js"></script>
+</body>
+</html>
