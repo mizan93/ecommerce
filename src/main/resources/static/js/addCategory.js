@@ -7,6 +7,10 @@ $("#submit-button").click(function(event){
         contentType:'application/json',
         success:function(){
             console.log("successfully posted");
+            $("#input-form")[0].reset();
+        },
+        error:function(){
+            console.log("error happened");
         }
     });
 });

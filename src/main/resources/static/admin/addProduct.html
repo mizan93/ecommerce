@@ -8,16 +8,40 @@
 </head>
 <body>
 <div class="container">
-    <form id="add-product">
-        <label>Select Category:</label>
-        <select class="category">
-            <option value="shirt">Shirt</option>
-            <option value="pant">Pant</option>
-            <option value="shoe">Shoe</option>
-        </select>
-    </form>
+    <h1 class="text-center">Admin Page</h1>
+    <div class="row">
+        <form class="col-sm-5" id="add-product">
+            <h2 class="text-center">Add Product </h2>
+            <div class="form-group">
+                <label for="category">Select Category:</label>
+                <select id="category"></select>
+            </div>
+            <div class="form-group">
+                <label for="product-name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="product-name">
+            </div>
+            <div class="form-group">
+                <label for="product-price" class="form-label">Product Price</label>
+                <input type="text" class="form-control" id="product-price">
+            </div>
+            <div class="form-group">
+                <label for="product-description" class="form-label">Product Description</label>
+                <input type="text" class="form-control" id="product-description">
+            </div>
+<!--            <div class="form-group">-->
+<!--                <label for="product-image">Product Image</label>-->
+<!--                <input type="file" class="form-control-file" id="product-image">-->
+<!--            </div>-->
+            <button type="submit" class="btn-btn-primary" id="submit-button">Save</button>
+            <div id="success-message"></div>
+        </form>
+    </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="module" src="/js/addProduct.js"></script>
+<script src="/js/addProduct.js"></script>
+<script>
+    getAllCategoryData();
+</script>
 </body>
 </html>
