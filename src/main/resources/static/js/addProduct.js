@@ -22,21 +22,22 @@ function getAllCategoryData(){
 
 $("#submit-button").click(function(event){
     event.preventDefault();
+//    var mo={
+//        imageLink:$('#product-name').val()
+//    };
 
-    var formData={
-        category:$("#category").val(),
-        productName:$("#product-name").val(),
-        productPrice:$("#product-price").val(),
-        productDescription:$("#product-description").val()
-    };
+    var fd=new FormData();
+    fd.append('multipartFile',$('#product-image')[0].files[0]);
+    //fd.append('imageDescription',JSON.stringify(mo));
 
-    console.log(formData);
+    $.ajax({
+          url: 'http://localhost:8081/aws/s3/image/save',
+          data: fd,
+          processData: false,
+          contentType: false,
+          type: 'POST',
+          success: function(data){
+            alert(data);
+          }
+    });
 });
-
-//
-//$(document).ready(function(){
-//    $("select#category").change(function(){
-//        var selectedCategory = $(this).children("option:selected").val();
-//        alert("You have selected the category - " + selectedCategory);
-//    });
-//});
