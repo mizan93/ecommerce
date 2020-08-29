@@ -22,16 +22,20 @@ function getAllCategoryData(){
 
 $("#submit-button").click(function(event){
     event.preventDefault();
-//    var mo={
-//        imageLink:$('#product-name').val()
-//    };
+    let obj={
+        category:$("#category").val(),
+        productName:$("#product-name").val(),
+        productPrice:$("#product-price").val(),
+        productDescription:$("#product-description").val(),
+        imageLink:$('#product-name').val()
+    };
 
     var fd=new FormData();
     fd.append('multipartFile',$('#product-image')[0].files[0]);
-    //fd.append('imageDescription',JSON.stringify(mo));
+    fd.append('imageDescription',JSON.stringify(obj));
 
     $.ajax({
-          url: 'http://localhost:8081/aws/s3/image/save',
+          url: 'http://localhost:8081/aws/s3/image/model/save',
           data: fd,
           processData: false,
           contentType: false,
