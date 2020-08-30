@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/shop")
-public class UniversalViewController {
-    @RequestMapping("/product")
+@RequestMapping("/public")
+public class PublicViewController {
+    @RequestMapping("/productInfo")
     public String getProductPage(){
-        return "product.html";
+        return "productInfo.html";
     }
 
     @RequestMapping("/others")
