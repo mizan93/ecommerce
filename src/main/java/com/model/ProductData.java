@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -24,7 +25,6 @@ public class ProductData {
     private String productPrice;
     private String productDescription;
     private String productImageLink;
-    private UUID productCode;
-    private String createdAt;
-    private String updatedAt;
+    private Instant createdAt;
+    private Instant updatedAt;
 }
