@@ -22,26 +22,43 @@ function getAllCategoryData(){
 
 $("#submit-button").click(function(event){
     event.preventDefault();
-    let obj={
+    var value={
         category:$("#category").val(),
         productName:$("#product-name").val(),
         productPrice:$("#product-price").val(),
         productDescription:$("#product-description").val(),
-        imageLink:$('#product-name').val()
+        productImageLink:""
     };
-
     var fd=new FormData();
     fd.append('multipartFile',$('#product-image')[0].files[0]);
-    fd.append('imageDescription',JSON.stringify(obj));
+    fd.append('bucketName',"sagar-ecommerce");
+    fd.append('category',$("#category").val());
 
     $.ajax({
-          url: 'http://localhost:8081/aws/s3/image/model/save',
+          url: 'http://localhost:8081/ecommerce/image/upload',
           data: fd,
           processData: false,
           contentType: false,
           type: 'POST',
           success: function(data){
-            alert(data);
+            value.productImageLink=data;
+            storeData(value);
+            $("#add-product")[0].reset();
           }
     });
 });
+
+function storeData(value){
+    $.ajax({
+        url:'/add/product',
+        type:'POST',
+        data:JSON.stringify(value),
+        contentType:'application/json',
+        success:function(){
+            console.log("success");
+        },
+        error:function(){
+            console.log("error");
+        }
+    });
+}
