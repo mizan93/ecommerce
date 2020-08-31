@@ -20,6 +20,8 @@ function getAllCategoryData(){
     });
 }
 
+//call to Aws
+//store image to Aws and returns imageLink
 $("#submit-button").click(function(event){
     event.preventDefault();
     var value={
