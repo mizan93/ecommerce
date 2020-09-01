@@ -18,12 +18,14 @@ import java.util.List;
 public class ViewProductDataController {
     private final ViewProductDataService viewProductDataService;
 
-    @PostMapping("/image/{category}")
-    public ResponseEntity<List<ViewProductDataDto>> getByCategory(@PathVariable String category){
+    @PostMapping("/image/{category}/{bucketName}")
+    public ResponseEntity<List<ViewProductDataDto>> getByCategory(@PathVariable String category,@PathVariable String bucketName){
+        //System.out.println(category+" "+bucketName);
         List<ViewProductDataDto> print=viewProductDataService.getByCategory(category);
 
         print.stream().forEach(viewProductDataDto -> {
-            System.out.println(viewProductDataDto.getProductImageLink());
+           // System.out.println(viewProductDataDto.getProductImageLink());
+
         });
 
         return ResponseEntity.status(HttpStatus.OK).body(viewProductDataService.getByCategory(category));
