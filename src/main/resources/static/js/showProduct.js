@@ -16,13 +16,10 @@ function getAllCategory(){
                 `;
             });
             $("#category").html(output);
+            onLoadProductData(result);
         },
         type:'GET'
     });
-}
-
-function byDefaultProductData(){
-
 }
 
 function getDataByCategory(category){
@@ -46,14 +43,12 @@ function getDataByCategory(category){
                     contentType:false,
                     type:'POST',
                     success:function(result){
+                    let result2=data.id;
                         output+=
-
-                               '<a href="#">'+
-                                    '<img style="height:200px;width:304px;margin-left:10px;"src="data:image/jpg;base64,'+result + '"/>'
-                               +'</a>'+
-
-
-                        ;
+                               '<a href="#" onclick="javascript:getProductInfo(' + result2 + ')">'+
+                                    '<img style="height:200px;width:170px;margin:25px 10px 25px 10px;"src="data:image/jpg;base64,'+result + '"/>'
+                               +'</a>'
+                               ;
                     },
                     error:function(error){
                         console.log(error);
@@ -68,6 +63,52 @@ function getDataByCategory(category){
     });
 }
 
+function getProductInfo(id){
+    console.log(id);
+}
 
+function onLoadProductData(result){
+    $.each(result,function(index,data){
+        $.ajax({
+            url:'/on/load/data/'+data.category,
+            type:'POST',
+            contentType:'application/json',
+            success:function(result){
+                returnOnLoadProductData(result,data.category);
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+    });
+}
+
+function returnOnLoadProductData(result,category){
+    let bucketName='sagar-ecommerce';
+    $.each(result,function(index,data){
+        var fd=new FormData();
+        fd.append('bucketName',bucketName);
+        fd.append('category',category);
+        fd.append('productImageLink',data);
+        $.ajax({
+            url:'http://localhost:8081/ecommerce/get/ecommerce/image',
+            async: false,
+            data:fd,
+            processData:false,
+            contentType:false,
+            type:'POST',
+            success:function(result){
+                $("#showProduct").prepend(
+                        '<a href="#">'+
+                             '<img style="height:200px;width:170px;margin:25px 10px 25px 10px;"src="data:image/jpg;base64,'+result + '"/>'
+                        +'</a>'
+                        );
+            },
+            error:function(error){
+                console.log(error);
+            }
+        });
+    });
+}
 
 

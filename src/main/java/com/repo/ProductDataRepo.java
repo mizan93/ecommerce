@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ProductDataRepo extends JpaRepository<ProductData,Integer> {
     List<ProductData> findAllByCategory(String category);
+
+    List<ProductData> findTop5ByCategory(String category);
 }
