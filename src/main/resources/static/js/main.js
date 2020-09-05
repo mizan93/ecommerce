@@ -55,7 +55,7 @@ function onLoadProductDataHelper(result,category){
             success:function(result){
                 let productId=data.id;
                 $("#showProduct").prepend(
-                '<a href="#" onclick="javascript:getProductInfo(' + productId + ')">'+
+                '<a href="#" onclick="javascript:changeLocation(' + productId + ')">'+
                      '<img style="height:200px;width:170px;margin:25px 10px 25px 10px;"src="data:image/jpg;base64,'+result + '"/>'
                 +'</a>'
                 );
@@ -108,7 +108,7 @@ function getDataByCategoryHelper2(result,data){
     let output="";
     let productId=data.id;
     $("#showProduct").prepend(
-       '<a href="#" onclick="javascript:getProductInfo(' + productId + ')">'+
+       '<a href="#" onclick="javascript:changeLocation(' + productId + ')">'+
             '<img style="height:200px;width:170px;margin:25px 10px 25px 10px;"src="data:image/jpg;base64,'+result + '"/>'
        +'</a>'
     );
