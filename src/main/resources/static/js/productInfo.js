@@ -50,3 +50,11 @@ function getProductInfoHelper(result){
         }
     });
 }
+
+function addCart(){
+    window.location='/orderAndCart/cart.html';
+}
+
+function orderProduct(){
+    window.location='/orderAndCart/order.html';
+}
