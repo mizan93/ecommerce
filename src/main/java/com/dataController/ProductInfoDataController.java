@@ -16,6 +16,7 @@ public class ProductInfoDataController {
 
     @GetMapping("/get/productInfo/{id}")
     public ResponseEntity<ProductDataDto> getProductInfo(@PathVariable Integer id){
-        return ResponseEntity.status(HttpStatus.OK).body(productInfoDataService.getProductInfo(id));
+        ProductDataDto productDataDto=productInfoDataService.getProductInfo(id);
+        return ResponseEntity.status(HttpStatus.OK).body(productDataDto);
     }
 }

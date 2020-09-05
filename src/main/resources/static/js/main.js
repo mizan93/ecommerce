@@ -22,7 +22,6 @@ function getAllCategory(){
     });
 }
 
-//all category
 function onLoadProductData(result){
     $.each(result,function(index,data){
         $.ajax({
@@ -40,14 +39,13 @@ function onLoadProductData(result){
     });
 }
 
-//all image link of category and category
 function onLoadProductDataHelper(result,category){
     let bucketName='sagar-ecommerce';
     $.each(result,function(index,data){
         var fd=new FormData();
         fd.append('bucketName',bucketName);
         fd.append('category',category);
-        fd.append('productImageLink',data);
+        fd.append('productImageLink',data.productImageLink);
         $.ajax({
             url:'http://localhost:8081/ecommerce/get/ecommerce/image',
             data:fd,
@@ -55,10 +53,9 @@ function onLoadProductDataHelper(result,category){
             contentType:false,
             type:'POST',
             success:function(result){
+                let productId=data.id;
                 $("#showProduct").prepend(
-                '<a href="#"
-                //onclick="javascript:getProductInfo(' + productId + ')"
-                >'+
+                '<a href="#" onclick="javascript:getProductInfo(' + productId + ')">'+
                      '<img style="height:200px;width:170px;margin:25px 10px 25px 10px;"src="data:image/jpg;base64,'+result + '"/>'
                 +'</a>'
                 );
@@ -117,8 +114,6 @@ function getDataByCategoryHelper2(result,data){
     );
 }
 
-function getProductInfo(id){
-    console.log(id);
-}
+
 
 

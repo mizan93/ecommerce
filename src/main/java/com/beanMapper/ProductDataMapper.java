@@ -13,4 +13,6 @@ public interface ProductDataMapper {
     ProductData mapToModel(ProductDataDto productDataDto);
 
     ViewProductDataDto mapToDto(ProductData productData);
+
+    ProductDataDto mapToDto2(ProductData productData);
 }

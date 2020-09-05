@@ -23,9 +23,10 @@ public class ViewProductDataService {
         return list.stream().map(productData->productDataMapper.mapToDto(productData)).collect(Collectors.toList());
     }
 
-    public List<String> getFirst5Element(String category) {
+    public List<ViewProductDataDto> getFirst5Element(String category) {
         List<ProductData> productData= viewProductRepo.findTop5ByCategory(category);
-        List<ViewProductDataDto> viewProductDataDtoList=productData.stream().map(p->productDataMapper.mapToDto(p)).collect(Collectors.toList());
-        return viewProductDataDtoList.stream().map(p->p.getProductImageLink()).collect(Collectors.toList());
+        //List<ViewProductDataDto> viewProductDataDtoList=productData.stream().map(p->productDataMapper.mapToDto(p)).collect(Collectors.toList());
+        return productData.stream().map(p->productDataMapper.mapToDto(p)).collect(Collectors.toList());
+        //return viewProductDataDtoList.stream().map(p->p.getProductImageLink()).collect(Collectors.toList());
     }
 }

@@ -23,7 +23,7 @@ public class ViewProductDataController {
     }
 
     @PostMapping("/on/load/data/{category}")
-    public ResponseEntity<List<String>> getFirst5Element(@PathVariable String category){
+    public ResponseEntity<List<ViewProductDataDto>> getFirst5Element(@PathVariable String category){
         return ResponseEntity.status(HttpStatus.OK).body(viewProductDataService.getFirst5Element(category));
     }
 }
