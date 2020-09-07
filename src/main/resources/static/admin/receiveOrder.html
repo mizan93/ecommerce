@@ -3,8 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Process Order</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-    Process Order
+    <div class="container-fluid" id="table-data">
+        <h1>Order Page</h1>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">ProductQuantity</th>
+                <th scope="col">Category</th>
+                <th scope="col">Unique Id</th>
+            </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/receiveOrder.js"></script>
+    <script>
+        onLoadData();
+    </script>
 </body>
 </html>

@@ -19,4 +19,10 @@ public class AdminViewController {
     public String getAddCategoryPage(){
         return "addCategory.html";
     }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/receiveOrder")
+    public String getReceiveOrderPage(){
+        return "receiveOrder.html";
+    }
 }

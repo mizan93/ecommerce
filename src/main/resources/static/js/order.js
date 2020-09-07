@@ -7,7 +7,8 @@ $("#submit-button").click(function(event){
         phone: $("#phone").val(),
         address: $("#address").val(),
         productQuantity: $("#quantity").val(),
-        productImageLink: sessionStorage.getItem('productImageLink')
+        category: sessionStorage.getItem('productCategory'),
+        uniqueId: sessionStorage.getItem('productIdForInfo')
     };
     $.ajax({
         url:'/order',

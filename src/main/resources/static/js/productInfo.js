@@ -22,7 +22,7 @@ function getProductInfo(){
                 '<div>' + result.productDescription + '</div>'+
                 '<a class="btn btn-primary" href="#" onclick="javascript:orderProduct()" role="button">Order Product</a>'
             );
-            sessionStorage.setItem('productImageLink',result.productImageLink);
+            sessionStorage.setItem('productCategory',result.category);
         },
         type:'GET'
     });

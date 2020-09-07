@@ -5,9 +5,6 @@ function getAllCategory(){
         data:{
             format:'json'
         },
-        error:function(){
-            console.log("error happened");
-        },
         success:function(result){
             $.each(result,function(index,data){
                 let category=data.category;
@@ -17,6 +14,9 @@ function getAllCategory(){
             });
             $("#category").html(output);
             onLoadProductData(result);
+        },
+        error:function(){
+            console.log("error happened");
         },
         type:'GET'
     });

@@ -23,5 +23,6 @@ public class OrderProduct {
     private String phone;
     private String address;
     private Integer productQuantity;
-    private String productImageLink;
+    private String category;
+    private Integer uniqueId;
 }
