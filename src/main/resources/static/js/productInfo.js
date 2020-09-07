@@ -19,8 +19,10 @@ function getProductInfo(){
             $("#productInfo").prepend(
                 '<div>'+ result.productName + '</div>'+
                 '<div>'+ result.productPrice + '</div>'+
-                '<div>' + result.productDescription + '</div>'
+                '<div>' + result.productDescription + '</div>'+
+                '<a class="btn btn-primary" href="#" onclick="javascript:orderProduct()" role="button">Order Product</a>'
             );
+            sessionStorage.setItem('productImageLink',result.productImageLink);
         },
         type:'GET'
     });
@@ -51,10 +53,6 @@ function getProductInfoHelper(result){
     });
 }
 
-function addCart(){
-    window.location='/orderAndCart/cart.html';
-}
-
 function orderProduct(){
-    window.location='/orderAndCart/order.html';
+    window.location='/order/order.html';
 }
